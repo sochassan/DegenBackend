@@ -3,15 +3,16 @@ const User = require('../models/user');
 class UserController {
     async getUser(req, res) {
       try {
-        const user = req.query.walletAddress;
-    
+        const walletAddress = req.query.walletAddress;
+        const user = await User.findOne({ walletAddress });
+
         // const user = await User.findOne({ walletAddress });
     
         if (!user) {
           return res.json({ success: false, message: 'User does not exist' });
         }
   
-        const totelReferral = await User.countDocuments({ user });
+        const totelReferral = await User.countDocuments({ walletAddress });
     
         return res.json({ success: true, user, totelReferral });
       } catch (error) {
