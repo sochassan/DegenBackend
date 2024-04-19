@@ -26,19 +26,24 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE'); 
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     next();
 });
 
 
 // controllers
 const UserController = require('./controllers/user');
+const LiquidityController = require('./controllers/liquidity');
 
 // routes
 app.get('/getuser', UserController.getUser);
 app.get('/getallusers', UserController.getAllAddressesWithEntryCount);
 
 app.post('/addreferral', UserController.addReferral);
+app.post('/saveLiquidity', LiquidityController.saveLiquidity);
+app.get('/getLiquidity', LiquidityController.getLiquidity);
+app.delete('/deleteLiquidity', LiquidityController.deleteLiquidity);
+
 
 
 
