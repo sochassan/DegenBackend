@@ -65,6 +65,18 @@ class LiquidityController {
             return res.status(500).json({ success: false, message: error.message });
         }
     }
+    async getSingleLiquidity(req, res) {
+        try {
+            let { id } = req.query;
+            if (!id) {
+                return res.status(400).json({ success: false, message: "Liquidity id is required" });
+            }
+            const liquidityData = await Liquidity.findById({ _id: id })
+            return res.status(200).json({ success: true, data: liquidityData });
+        } catch (error) {
+            return res.status(500).json({ success: false, message: error.message });
+        }
+    }
 }
 
 module.exports = new LiquidityController();
