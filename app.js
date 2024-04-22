@@ -38,6 +38,7 @@ const LiquidityController = require('./controllers/liquidity');
 // routes
 app.get('/getuser', UserController.getUser);
 app.get('/getallusers', UserController.getAllAddressesWithEntryCount);
+app.get('/getSingleLiquidity', LiquidityController.getSingleLiquidity);
 
 app.post('/addreferral', UserController.addReferral);
 app.post('/saveLiquidity', LiquidityController.saveLiquidity);
