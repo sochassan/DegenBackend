@@ -21,7 +21,8 @@ class LiquidityController {
                     ToToken: data.ToToken,
                     public_key: data.public_key,
                     fromTokenName: data.fromTokenName,
-                    ToTokenName: data.ToTokenName
+                    ToTokenName: data.ToTokenName,
+                    type: data.type
                 }
             };
             const options = {
