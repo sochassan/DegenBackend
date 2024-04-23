@@ -8,6 +8,7 @@ const liquiditySchema = new mongoose.Schema({
     ToToken: { type: String },
     ToTokenName: { type: String, },
     ToTokenValue: { type: Number },
+    type: { type: String },
 });
 
 const liquidity = mongoose.model('liquidity', liquiditySchema);
